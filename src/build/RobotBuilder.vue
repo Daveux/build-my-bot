@@ -38,6 +38,15 @@
 
 import availableParts from '../data/parts';
 
+function getPreviousValidIndex(index, length) {
+  const decrementedIndex = index - 1;
+  return decrementedIndex < 0 ? length - 1 : decrementedIndex;
+}
+function getNextValidIndex(index, length) {
+  const incrementedIndex = index + 1;
+  return incrementedIndex < length - 1 ? 0 : incrementedIndex;
+}
+
 export default {
   name: 'RobotBuilder',
   data() {
@@ -48,11 +57,13 @@ export default {
   },
   methods: {
     selectNextHead() {
-      this.selectedHeadIndex += 1;
+      this.selectedHeadIndex = getNextValidIndex(this.selectedHeadIndex,
+        availableParts.heads.length);
       console.log('Next head selected');
     },
     selectPrevHead() {
-      this.selectedHeadIndex -= 1;
+      this.selectedHeadIndex = getPreviousValidIndex(this.selectedHeadIndex,
+        availableParts.heads.length);
       console.log('Prev head selected');
     },
   },
