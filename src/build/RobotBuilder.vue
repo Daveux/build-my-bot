@@ -2,8 +2,8 @@
   <div>
     <div class="top-row">
       <div class="top part">
-        <img v-bind:src="availableParts.heads[0].src" title="head"/>
-        <button class="prev-selector">&#9668;</button>
+        <img v-bind:src="availableParts.heads[selectedHeadIndex].src" title="head"/>
+        <button v-on:click="selectPrevHead()" class="prev-selector">&#9668;</button>
         <button v-on:click="selectNextHead()" class="next-selector">&#9658;</button>
       </div>
     </div>
@@ -43,11 +43,17 @@ export default {
   data() {
     return {
       availableParts,
+      selectedHeadIndex: 0,
     };
   },
   methods: {
     selectNextHead() {
+      this.selectedHeadIndex += 1;
       console.log('Next head selected');
+    },
+    selectPrevHead() {
+      this.selectedHeadIndex -= 1;
+      console.log('Prev head selected');
     },
   },
 };
