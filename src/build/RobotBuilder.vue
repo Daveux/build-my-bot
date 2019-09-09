@@ -79,27 +79,27 @@ export default {
         availableParts.arms.length);
     },
     selectNextRightArm() {
-      this.selectedHeadIndex = getNextValidIndex(this.selectedRightArmIndex,
+      this.selectedRightArmIndex = getNextValidIndex(this.selectedRightArmIndex,
         availableParts.arms.length);
     },
     selectPrevRightArm() {
-      this.selectedHeadIndex = getPreviousValidIndex(this.selectedRightArmIndex,
+      this.selectedRightArmIndex = getPreviousValidIndex(this.selectedRightArmIndex,
         availableParts.arms.length);
     },
     selectNextTorso() {
-      this.selectedHeadIndex = getNextValidIndex(this.selectedTorsoIndex,
+      this.selectedTorsoIndex = getNextValidIndex(this.selectedTorsoIndex,
         availableParts.torsos.length);
     },
     selectPrevTorso() {
-      this.selectedHeadIndex = getPreviousValidIndex(this.selectedTorsoIndex,
+      this.selectedTorsoIndex = getPreviousValidIndex(this.selectedTorsoIndex,
         availableParts.torsos.length);
     },
     selectNextBase() {
-      this.selectedHeadIndex = getNextValidIndex(this.selectedBaseIndex,
+      this.selectedBaseIndex = getNextValidIndex(this.selectedBaseIndex,
         availableParts.bases.length);
     },
     selectPrevBase() {
-      this.selectedHeadIndex = getPreviousValidIndex(this.selectedBaseIndex,
+      this.selectedBaseIndex = getPreviousValidIndex(this.selectedBaseIndex,
         availableParts.bases.length);
     },
 
