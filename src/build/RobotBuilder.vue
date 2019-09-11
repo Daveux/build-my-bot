@@ -2,33 +2,39 @@
   <div>
     <div class="top-row">
       <div class="top part">
-        <img :src="availableParts.heads[selectedHeadIndex].src" title="head"/>
+        <div class="robot-name">
+          {{selectedRobot.head.title}}
+        </div>
+        <img :src="selectedRobot.head.src" title="head"/>
         <button @click="selectPrevHead()" class="prev-selector">&#9668;</button>
         <button @click="selectNextHead()" class="next-selector">&#9658;</button>
       </div>
     </div>
     <div class="middle-row">
       <div class="left part">
-        <img :src="availableParts.arms[selectedLeftArmIndex].src" title="left arm"/>
+        <div class="">
+          {{selectedRobot.leftArm.title}}
+        </div>
+        <img :src="selectedRobot.leftArm.src" title="left arm"/>
         <button @click="selectPrevLeftArm()" class="prev-selector">&#9650;</button>
         <button @click="selectNextLeftArm()" class="next-selector">&#9660;</button>
       </div>
       <div class="center part">
-        <img :src="availableParts.torsos[selectedTorsoIndex].src" title="left arm"/>
+        <img :src="selectedRobot.torso.src" title="left arm"/>
         <button @click="selectPrevTorso" class="prev-selector">&#9668;</button>
         <button @click="selectNextTorso" class="next-selector">&#9658;</button>
       </div>
       <div class="right part">
-        <img :src="availableParts.arms[selectedRightArmIndex].src" title="left arm"/>
-        <button @click="selectPrevRightArm" class="prev-selector">&#9650;</button>
-        <button @click="selectNextRightArm" class="next-selector">&#9660;</button>
+        <img :src="selectedRobot.rightArm.src" title="left arm"/>
+        <button @click="selectPrevRightArm()" class="prev-selector">&#9650;</button>
+        <button @click="selectNextRightArm()" class="next-selector">&#9660;</button>
       </div>
     </div>
     <div class="bottom-row">
       <div class="bottom part">
-        <img :src="availableParts.bases[selectedBaseIndex].src" title="left arm"/>
-        <button @click="selectPrevBase" class="prev-selector">&#9668;</button>
-        <button @click="selectNextBase" class="next-selector">&#9658;</button>
+        <img :src="selectedRobot.base.src" title="left arm"/>
+        <button @click="selectPrevBase()" class="prev-selector">&#9668;</button>
+        <button @click="selectNextBase()" class="next-selector">&#9658;</button>
       </div>
     </div>
   </div>
@@ -59,16 +65,28 @@ export default {
       selectedBaseIndex: 0,
     };
   },
+  computed: {
+    selectedRobot() {
+      return {
+        head: availableParts.heads[this.selectedHeadIndex],
+        leftArm: availableParts.arms[this.selectedLeftArmIndex],
+        rightArm: availableParts.arms[this.selectedRightArmIndex],
+        torso: availableParts.torsos[this.selectedTorsoIndex],
+        base: availableParts.bases[this.selectedBaseIndex],
+
+      };
+    },
+  },
   methods: {
     selectNextHead() {
       this.selectedHeadIndex = getNextValidIndex(this.selectedHeadIndex,
         availableParts.heads.length);
-      console.log('Next head selected');
+      // console.log('Next head selected');
     },
     selectPrevHead() {
       this.selectedHeadIndex = getPreviousValidIndex(this.selectedHeadIndex,
         availableParts.heads.length);
-      console.log('Prev head selected');
+      // console.log('Prev head selected');
     },
     selectNextLeftArm() {
       this.selectedLeftArmIndex = getNextValidIndex(this.selectedLeftArmIndex,
@@ -196,5 +214,10 @@ export default {
   .right .next-selector {
     right: -3px;
   }
-
+  .robot-name {
+    position: absolute;
+    top: -25px;
+    text-align: center;
+    width: 100%;
+  }
 </style>
