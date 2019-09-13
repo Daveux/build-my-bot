@@ -40,7 +40,7 @@
       </div>
     </div>
     <div>
-      <h1>
+      <h1>Cart</h1>
         <table>
           <thead>
             <tr>
@@ -55,7 +55,6 @@
             </tr>
           </tbody>
         </table>
-      </h1>
     </div>
   </div>
 
@@ -155,7 +154,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
   .part {
     position: relative;
     width:165px;
