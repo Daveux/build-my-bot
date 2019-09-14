@@ -11,7 +11,10 @@
       </nav>
     </header>
     <main>
+      <div class="robot-name">
+        This is me!
      <RobotBuilder/>
+      </div>
     </main>
   </div>
 </template>
@@ -36,6 +39,9 @@ export default {
 </style>
 
 <style scoped>
+  .robot-name{
+    color: blue;
+  }
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
 
