@@ -36,10 +36,10 @@ export default {
 </style>
 
 <style scoped>
-  .content /deep/ .robot-name{
-    color: blue;
-    border: 2px solid red;
-  }
+  /*.content /deep/ .robot-name{*/
+  /*  color: blue;*/
+  /*  border: 2px solid red;*/
+  /*}*/
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
 
